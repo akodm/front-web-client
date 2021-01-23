@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import RootErrorBoundary from './RootErrorBoundary';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';

@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import PageWrapper from './components/PageWrapper';
+import PageTransitionWapper from './components/PageTransitionWapper';
+import FallBackUi from './components/Fallback';
 
-function App() {
+const FirstPage = React.lazy(() => import('./pages/Index'));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PageWrapper>
+      <Router>
+        <PageTransitionWapper>
+          <Suspense fallback={<FallBackUi />}>
+            <Switch>
+              {/* First Page */}
+              <Route exact path="/"><FirstPage /></Route>
+
+              {/* Not Found Page */}
+              <Route><FirstPage /></Route>
+            </Switch>
+          </Suspense>
+        </PageTransitionWapper>
+      </Router>
+    </PageWrapper>
   );
 }
 
