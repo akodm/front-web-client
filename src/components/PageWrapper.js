@@ -4,6 +4,8 @@ import styled from 'styled-components';
 const WrapperContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100vw;  
+  height: 100vh;
   margin: 0px;
   padding: 0px;
   font-size: calc(10px + 2vmin);

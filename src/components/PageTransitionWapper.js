@@ -5,7 +5,7 @@ import { animated, useSpring } from 'react-spring';
 const TransitionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   padding: 30px;
 `;
 
